@@ -1,8 +1,8 @@
 import java.io.File
 import java.io.InputStream
 
-fun mulRegex(): Regex = """multiply\(\h*([-\+]*\d+)\h*,\h*([-\+]*\d+)\h*\)""".toRegex()
-fun addRegex(): Regex = """add\(\h*([-\+]*\d+)\h*,\h*([-\+]*\d+)\h*\)""".toRegex()
+fun mulRegex(): Regex = """multiply\h*\(\h*([-\+]*\d+)\h*,\h*([-\+]*\d+)\h*\)\h*""".toRegex()
+fun addRegex(): Regex = """add\h*\(\h*([-\+]*\d+)\h*,\h*([-\+]*\d+)\h*\)\h*""".toRegex()
 fun numRegex(): Regex = """\A[-\+]*\d+$""".toRegex()
 
 fun mulMatch(line: String): MatchResult? = mulRegex().find(line)
@@ -23,10 +23,10 @@ fun mul(a: Int, b: Int): Int = a * b
 fun mulStrings(a: String, b:String): String = mul(a.toInt(), b.toInt()).toString()
 
 
-fun replaceAdd(line: String, match: MatchResult, regex: Regex): String = line.replace(
+fun replaceAdd(line: String, match: MatchResult, regex: Regex): String = line.replaceFirst(
         regex, addStrings(match.groups[1]!!.value, match.groups[2]!!.value))
 
-fun replaceMul(line: String, match: MatchResult, regex: Regex): String = line.replace(
+fun replaceMul(line: String, match: MatchResult, regex: Regex): String = line.replaceFirst(
         regex, mulStrings(match.groups[1]!!.value, match.groups[2]!!.value))
 
 
@@ -52,8 +52,10 @@ fun main(args: Array<String>){
 
     val inputStream: InputStream = File(args[0]).inputStream()
     inputStream.bufferedReader().useLines { lines -> lines.forEach {
-        print(it)
-        print(" = ")
-        println(replaceAll(it))
+        if(it != ""){
+            print(it)
+            print(" = ")
+            println(replaceAll(it))
+        }
     }}
 }

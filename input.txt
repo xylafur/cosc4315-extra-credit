@@ -4,3 +4,45 @@ add(1, add(1, 1))
 multiply(1, )
 add(multiply(2, 2), multiply(2, 2))
 add(-5, -5)
+
+add(5, 6)
+mul(add(3, 4), 7)
+add(add(5, 6), add(3, 4))
+
+16
+add(add(add(2, 2), add(2, 2)), add(add(2, 2), add(2, 2)))
+
++5
+-5
+
+add(+5, +5)
+add(-5, -5)
+add(+5, -5)
+
+add (5,5)
+add(5, 5)
+add( 5, 5)
+add( 5 , 5)
+add( 5 , 5 )
+
+add (-5,5)
+add(-5, 5)
+add( -5, 5)
+add( -5 , 5)
+add( -5 , 5 )
+
+add (5,-5)
+add(5, -5)
+add( 5, -5)
+add( 5 , -5)
+add( 5 , -5 )
+
+
+add (5,+5)
+add (5, +5)
+add ( 5, +5)
+add ( 5 , +5)
+add ( 5 , +5 )
+
+
+mul(5, )
