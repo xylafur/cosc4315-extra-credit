@@ -1,9 +1,9 @@
 import java.io.File
 import java.io.InputStream
 
-fun mulRegex(): Regex = """multiply\(\h*(\d+)\h*,\h*(\d+)\h*\)""".toRegex()
-fun addRegex(): Regex = """add\(\h*(\d+)\h*,\h*(\d+)\h*\)""".toRegex()
-fun numRegex(): Regex = """\A\d+$""".toRegex()
+fun mulRegex(): Regex = """multiply\(\h*([-\+]*\d+)\h*,\h*([-\+]*\d+)\h*\)""".toRegex()
+fun addRegex(): Regex = """add\(\h*([-\+]*\d+)\h*,\h*([-\+]*\d+)\h*\)""".toRegex()
+fun numRegex(): Regex = """\A[-\+]*\d+$""".toRegex()
 
 fun mulMatch(line: String): MatchResult? = mulRegex().find(line)
 fun addMatch(line: String): MatchResult? = addRegex().find(line)
