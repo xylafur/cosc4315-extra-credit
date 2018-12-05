@@ -1,0 +1,5 @@
+add(1, 2)
+multiply(2, 2)
+add(1, add(1, 1))
+multiply(1, )
+add(multiply(2, 2), multiply(2, 2))

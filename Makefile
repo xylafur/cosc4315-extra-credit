@@ -1,13 +1,13 @@
 CC=kotlinc
-FILES=hello.kt
+FILES=main.kt
 CC_FLAGS=-include-runtime -d
-OUT=hello.jar
-
-run: compile
-	java -jar $(OUT)
+OUT=prog.jar
 
 compile:
 	$(CC) $(FILES) $(CC_FLAGS) $(OUT)
+
+run: compile
+	java -jar $(OUT) input.txt
 
 clean:
 	rm $(OUT)
